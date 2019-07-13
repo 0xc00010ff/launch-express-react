@@ -1,0 +1,16 @@
+version: '2'
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - 80:8765
+      - 443:8765
+    environment:
+      - NODE_ENV=production
+      - PORT=8765
+      - HOST=0.0.0.0
+volumes:
+  cresta:
+    external:
+      name: launch-express-react

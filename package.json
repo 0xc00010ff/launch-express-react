@@ -1,0 +1,53 @@
+{
+  "name": "launch-express-react",
+  "version": "1.0.0",
+  "description": "Let's launch something great.",
+  "repository": "https://github.com/SierraSpaceAgency/launch-express-react",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn run dev",
+    "dev-server": "DEBUG=api* nodemon server.js",
+    "dev-client": "concurrently \"webpack-dev-server --config ./webpack.config.js --mode development\" \"wait-on http://localhost:4321 && open http://localhost:4321\"",
+    "dev": "npm install && concurrently \"npm run dev-server\" \"npm run dev-client\"",
+    "lint": "eslint",
+    "build": "webpack --config ./webpack.config.js --mode production",
+    "serve": "node server.js",
+    "prod-preview": "concurrently \"npm run build && npm run serve\" \"wait-on http://localhost:8765 && open http://localhost:8765\"",
+    "test": "echo \"Error: nothing to test!\" && exit 0",
+    "kill": "kill $(lsof -t -i:8765)"
+  },
+  "keywords": [],
+  "author": "Sierra Space Agency",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^3.5.1",
+    "css-loader": "^3.0.0",
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.17.3",
+    "react-hot-loader": "^4.12.6",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.1",
+    "wait-on": "^2.1.0",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
+  }
+}

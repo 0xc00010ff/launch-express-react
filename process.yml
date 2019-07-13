@@ -1,0 +1,6 @@
+apps:
+  - script   : 'npm'
+    args     : 'run serve'
+    name     : 'launch-express-react'
+    exec_mode: 'cluster'
+instances: 'max'
